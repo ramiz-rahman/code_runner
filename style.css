@@ -1,0 +1,167 @@
+/* ===STYLE GUIDE=== */
+
+/*
+  Colors: 
+    Blackboard: #565656
+    Grain:      #D7CEC7
+    Oxblood:    #76323F
+    Tan:        #C09F80
+  
+  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 16px;
+
+
+*/
+
+html, body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  line-height: 1.5em;
+  vertical-align: baseline;
+  color: #565656;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+      
+h1, h2, h3, h4, h5, h6, p, button, div, section, textarea, iframe, footer {
+  padding: 0;
+  margin: 0;
+}
+
+#wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+#page_header {
+  width: 100%;
+  background-color: #D7CEC7;
+  overflow: hidden;
+  border-bottom: 2px solid #C09F80;
+}
+
+h1 {
+  font-size: 1.5rem;
+  line-height: 1.5em;
+  margin: 0.5rem 0 0.5rem 10px;
+  float: left;
+}
+
+#toggles {
+  width: 240px;
+  overflow: hidden;
+  margin: 0.5rem auto;
+  border: 1px solid #C09F80;
+  border-radius: 5px;
+}
+
+#toggles button {
+  border-right: 1px solid #C09F80;
+}
+
+#toggles button:last-of-type {
+  border: none;
+}
+
+button {
+  width: 60px;
+  height: 34px;
+  border: none;
+  float: left;
+  font-family: inherit;
+  background-color: transparent;
+  color: inherit;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #C09F80;
+  color: #D7CEC7;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+.selected {
+  background-color: #C09F80;
+  color: #D7CEC7;
+}
+
+#run {
+  float: right;
+  margin: 0.5rem 10px 0.5rem 0;
+  border: 1px solid #76323F;
+  border-radius: 5px;
+  background-color: #76323F;
+  color: #FFF;
+  font-weight: 700;
+  box-sizing: content-box;
+}
+
+#run:hover {
+  background-color: #565656;
+}
+
+section {
+  box-sizing: border-box;
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+
+h2 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #76323F;
+  padding: 0.5rem 19px 0 0;
+  text-align: right;
+  border-right: 1px solid #C09F80;
+}
+
+#HTML_container {
+  background-color:;
+}
+
+#CSS_container, #JS_container {
+  display: none;
+}
+
+#Result_container h2{
+  border: none;
+}
+
+
+textarea {
+   font-family: 'Source Code Pro', monospace;
+   font-size: 1rem;
+   width: 100%;
+   height: 100%;
+   padding: 8px;
+   border: none;
+   box-sizing: border-box;
+   border-right: 1px solid #C09F80;
+}
+
+iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+footer {
+  width: 100%;
+  font-size: 0.8rem;
+  line-height:1.5em;
+  text-align: center;
+  background-color: #C09F80;
+  color: #000;
+  clear:both;
+}

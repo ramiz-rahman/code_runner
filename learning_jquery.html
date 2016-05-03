@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+  <head>
+    <title>CodeRunner</title>
+    <meta charset = "utf-8" />
+    <meta http-equiv = "Content-type" content = "text/html"; charset = "utf-8" />
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1" />
+    
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    
+    <script type = "text/javascript" src = "jquery.js"></script>
+    <script type = "text/javascript" src = "jquery_ui/jquery-ui.js"></script>
+    
+  </head>
+  
+  <body>
+    
+    <div id = "wrapper">
+    <header id = "page_header">
+      <h1>CodeRunner</h1>
+      <button id = "run">Run</button>
+      <div id = "toggles">
+        <button class = "selected">HTML</button>
+        <button >CSS</button>
+        <button>JS</button>
+        <button class = "selected">Result</button>
+      </div>
+      
+    </header>
+    
+    <section id = "HTML_container">
+      <h2>HTML</h2>
+      <textarea><h1 id = "frame_head">Welcome!</h1>
+<p>Write code and then click run to see results.</p>
+      </textarea>
+    </section>
+    
+    <section id = "CSS_container">
+      <h2>CSS</h2>
+      <textarea>html {background-color: #EEE;}</textarea>
+    </section>
+    
+    <section id = "JS_container">
+      <h2>JavaScript</h2>
+      <textarea>document.getElementById("frame_head").innerHTML="HELLO!"</textarea>
+    </section>
+    
+    <section id = "Result_container">
+      <h2>Result</h2>
+      <iframe id = "result_frame"></iframe>
+    </section>
+    
+    <footer>
+      &copy;Copyright 2016, Ramiz Rahman
+    </footer>
+    
+    </div>
+    
+  </body>  
+  
+  <script>
+    //The following lines of code are used to set the height of the elements of the page;
+
+    var windowHeight = $(window).height();
+    var pageHeaderHeight = $("#page_header").height();
+    var footerHeight = $("footer").height();
+
+    var codeContainerHeight = windowHeight-pageHeaderHeight-footerHeight-2;
+
+    var markerHeight = $("h2").height() + 8;
+
+    var codeEditorHeight = codeContainerHeight-markerHeight-16;
+
+    $("section").height(codeContainerHeight + "px");
+    $("textarea").height(codeEditorHeight + "px");
+    $("iframe").height(codeEditorHeight + "px");
+
+    //The following code is used to change the display property of the code containers
+
+    $("#toggles button").click(function() {
+      $(this).toggleClass("selected");
+
+      var activeSection = $(this).html();
+
+      $("#" + activeSection + "_container").toggle();
+
+      var showingSections = $("section").filter(function () {
+        return($(this).css("display") != "none");
+      }).length;
+
+      var width = 100/showingSections;
+
+      $("section").width(width + "%");
+
+    });
+
+    //The following code is used to display the result in the result container
+
+    $("#run").click(function() {
+      $("iframe").contents().find("html").html('<style>' + $("#CSS_container textarea").val() + '</style>' + $("#HTML_container textarea").val());
+
+      document.getElementById("result_frame").contentWindow.eval($("#JS_container textarea").val());
+    });
+  </script>
+</html>
